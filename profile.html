@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Profil & Pengajuan Baru</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-wrapper page-card">
+      <header>
+        <h2 style="font-size: 18px">Profil Admin &amp; Pendaftaran Baru</h2>
+      </header>
+
+      <section class="profile-layout">
+        <!-- LEFT profile -->
+        <div class="profile-card">
+          <img src="assets/profile2.png" alt="Foto Admin" />
+          <h3>Kayden Rayyan Mahendra</h3>
+          <p>kaydenmahendra.id@gmail.com</p>
+          <p style="margin-top: 6px; font-size: 11px">
+            Admin SIPADU • Dinas Sosial
+          </p>
+        </div>
+
+        <!-- RIGHT edit / pendaftaran baru -->
+        <div class="profile-edit">
+          <div class="dual-form">
+            <div class="block">
+              <h3>Account</h3>
+              <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" placeholder="Kayden Rayyan Mahendra" />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="kaydenmahendra.id@gmail.com" />
+              </div>
+            </div>
+
+            <div class="block">
+              <h3>Pendaftaran Baru</h3>
+              <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" placeholder="Nama warga" />
+              </div>
+              <div class="form-group">
+                <label>NIK</label>
+                <input type="text" placeholder="16 digit NIK" />
+              </div>
+              <div class="form-group">
+                <label>Password Portal</label>
+                <input type="password" placeholder="Minimal 8 karakter" />
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-primary" style="margin-top: 18px">
+            Simpan Perubahan
+            <span class="icon">💾</span>
+          </button>
+        </div>
+      </section>
+
+      <nav class="bottom-nav">
+        <a href="index.html">
+          <img src="assets/beranda.png" alt="" width="35px" height="auto" />
+          Beranda
+        </a>
+        <a href="dashboard.html">
+          <img src="assets/proban.png" alt="" width="35px" height="auto" />
+          Program Bantuan
+        </a>
+        <a href="cek-data.html">
+          <img src="assets/cekdata.png" alt="" width="35px" height="auto" />
+          Cek Data
+        </a>
+        <a href="profile.html" class="active">
+        <img src="assets/pengajuan.png" alt="" width="35px" height="auto">
+          Pengajuan
+        </a>
+      </nav>
+    </div>
+  </body>
+</html>

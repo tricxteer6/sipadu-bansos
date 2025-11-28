@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cek Data & Pengajuan Bansos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-wrapper page-card">
+    <header style="display:flex; justify-content:space-between; align-items:center;">
+      <h2 style="font-size:18px;">Cek Data &amp; Pengajuan</h2>
+      <button class="btn-secondary" type="button" onclick="resetTable()">Reset Filter</button>
+    </header>
+
+    <section class="cekdata-layout">
+      <!-- LEFT: area info / instruksi -->
+      <div class="cek-left">
+        <h3 style="font-size:14px; margin-bottom:8px;">Instruksi</h3>
+        <p style="font-size:12px; color:#5c708f; margin-bottom:10px;">
+          Masukkan NIK atau nama pada kotak pencarian di sebelah kanan
+          untuk mengecek apakah warga sudah terdaftar sebagai penerima
+          bantuan sosial.
+        </p>
+        <textarea readonly>
+Contoh kriteria verifikasi:
+
+1. NIK valid dan sesuai dengan Dukcapil.
+2. Alamat sesuai wilayah sasaran.
+3. Tidak menerima bantuan sosial lain yang sejenis.
+4. Status pekerjaan & penghasilan sesuai kriteria miskin/rentan.
+
+Hasil pencarian hanya menampilkan data simulasi (dummy) untuk keperluan desain.
+        </textarea>
+      </div>
+
+      <!-- RIGHT: tabel + form pengajuan -->
+      <div class="cek-right-card">
+        <h3>Data Penerima (Simulasi)</h3>
+
+        <div class="search-row">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari NIK / nama / alamat..."
+            oninput="filterTable()"
+          />
+          <small style="font-size:11px; color:#5c708f;">10 data dummy</small>
+        </div>
+
+        <div class="table-wrapper">
+          <table id="dataTable">
+            <thead>
+              <tr>
+                <th>NIK</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>3173021501910001</td>
+                <td>Ahmad Fauzi</td>
+                <td>Jakarta Timur</td>
+                <td>Aktif</td>
+              </tr>
+              <tr>
+                <td>3174012203920002</td>
+                <td>Siti Rahmawati</td>
+                <td>Jakarta Barat</td>
+                <td>Aktif</td>
+              </tr>
+              <tr>
+                <td>3201170506790003</td>
+                <td>Budi Santoso</td>
+                <td>Bogor</td>
+                <td>Pending</td>
+              </tr>
+              <tr>
+                <td>3202053012810004</td>
+                <td>Dewi Lestari</td>
+                <td>Depok</td>
+                <td>Aktif</td>
+              </tr>
+              <tr>
+                <td>3275061205900005</td>
+                <td>Ridwan Kamil</td>
+                <td>Bandung</td>
+                <td>Tidak Aktif</td>
+              </tr>
+              <tr>
+                <td>3175080907930006</td>
+                <td>Farah Nabila</td>
+                <td>Jakarta Selatan</td>
+                <td>Aktif</td>
+              </tr>
+              <tr>
+                <td>3276021408810007</td>
+                <td>Hendra Wijaya</td>
+                <td>Bekasi</td>
+                <td>Pending</td>
+              </tr>
+              <tr>
+                <td>3209091010770008</td>
+                <td>Nur Aisyah</td>
+                <td>Cirebon</td>
+                <td>Aktif</td>
+              </tr>
+              <tr>
+                <td>3203142305690009</td>
+                <td>Yusuf Maulana</td>
+                <td>Karawang</td>
+                <td>Tidak Aktif</td>
+              </tr>
+              <tr>
+                <td>3172100402010010</td>
+                <td>Intan Pratiwi</td>
+                <td>Jakarta Utara</td>
+                <td>Aktif</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:18px;">Pengajuan Bansos</h3>
+        <p style="font-size:11px; color:#5c708f; margin-bottom:8px;">
+          Isi form berikut untuk pengajuan baru jika belum terdaftar.
+        </p>
+
+        <form class="pengajuan-form" onsubmit="handlePengajuan(event)">
+          <input type="text" placeholder="Nama sesuai KTP" required />
+          <input type="text" placeholder="NIK" required />
+          <input type="text" placeholder="Alamat KTP" required />
+          <input type="text" placeholder="Kelurahan / Kecamatan" required />
+          <input type="text" placeholder="Nomor WhatsApp" />
+          <button type="submit">Simpan</button>
+        </form>
+      </div>
+    </section>
+
+    <nav class="bottom-nav">
+        <a href="index.html">
+          <img src="assets/beranda.png" alt="" width="35px" height="auto" />
+          Beranda
+        </a>
+        <a href="dashboard.html">
+          <img src="assets/proban.png" alt="" width="35px" height="auto" />
+          Program Bantuan
+        </a>
+        <a href="cek-data.html">
+          <img src="assets/cekdata.png" alt="" width="35px" height="auto" />
+          Cek Data
+        </a>
+        <a href="profile.html" class="active">
+        <img src="assets/pengajuan.png" alt="" width="35px" height="auto">
+          Pengajuan
+        </a>
+      </nav>
+  </div>
+
+  <script>
+    function filterTable() {
+      const q = document.getElementById("searchInput").value.toLowerCase();
+      const rows = document
+        .getElementById("dataTable")
+        .querySelectorAll("tbody tr");
+
+      rows.forEach((row) => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(q) ? "" : "none";
+      });
+    }
+
+    function resetTable() {
+      document.getElementById("searchInput").value = "";
+      filterTable();
+    }
+
+    function handlePengajuan(e) {
+      e.preventDefault();
+      alert("Data pengajuan tersimpan (simulasi).");
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

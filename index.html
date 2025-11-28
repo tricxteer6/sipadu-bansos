@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>SIPADU BANSOS - Beranda</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-wrapper">
+    <!-- Top bar -->
+    <div style="display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:18px;">
+        <div>
+          <img src="assets/logo.png" alt="Logo Sipadu" width="50px" height="auto">
+        </div>
+
+        <nav style="margin-left: 200px;" class="nav-pill">
+          <a href="index.html" class="active">Beranda</a>
+          <a href="dashboard.html">Program Bantuan</a>
+          <a href="cek-data.html">Cek Data</a>
+          <a href="profile.html">Pengajuan</a>
+        </nav>
+      </div>
+
+      <div>
+        <!-- ikon user -->
+        <span>
+          <a href="login.html"><img src="assets/profile.png" width="50px" height="auto" alt="Profile"></a>
+        </span>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <h1 class="hero-title">SIPADU<br/>BANSOS</h1>
+        <p class="hero-subtitle">
+          Sistem Informasi Penyaluran Bantuan Sosial Terpadu untuk memastikan data
+          penerima lebih akurat, proses lebih transparan, dan bantuan tersalurkan
+          tepat sasaran.
+        </p>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="window.location.href='login.html'">
+            Selengkapnya
+            <img src="assets/kanan.png" alt="" width="30px" height="auto">
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-illustration-wrapper">
+        <div class="hero-illustration">
+          <!-- Ganti src dengan ilustrasi kamu -->
+          <img src="assets/image1.png" alt="Ilustrasi penyaluran bantuan sosial" />
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // efek kecil: fade-in on load
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.style.opacity = "0";
+      document.body.style.transition = "opacity 0.4s ease-out";
+      requestAnimationFrame(() => {
+        document.body.style.opacity = "1";
+      });
+    });
+  </script>
+</body>
+</html>

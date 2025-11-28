@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard Program Bantuan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-wrapper page-card">
+    <header style="display:flex; justify-content:space-between; align-items:center;">
+      <h2 style="font-size:18px;">Program Bantuan</h2>
+      <input type="text" placeholder="Cari program..." style="border-radius:999px; padding:6px 12px; border:1px solid #c1d3ea; font-size:12px; width:200px;">
+    </header>
+
+    <section class="dashboard-grid">
+      <div>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <label>Penerima</label>
+            <div class="value">2,86 juta jiwa</div>
+          </div>
+          <div class="stat-card">
+            <label>Komunitas Bina</label>
+            <div class="value">2.405</div>
+          </div>
+          <div class="stat-card">
+            <label>Kelurahan</label>
+            <div class="value">353</div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>Penerima Bantuan 2020–2025</h3>
+            <small style="font-size:11px; color:#5c708f;">Simulasi data</small>
+          </div>
+          <div class="chart-placeholder">
+            <svg class="chart-line" viewBox="0 0 260 160">
+              <polyline id="chartPolyline"
+                        fill="none"
+                        stroke="#0c284f"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        points="10,140 40,130 70,110 100,115 130,90 160,95 190,60 220,40 250,30">
+              </polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <aside class="region-card">
+        <h3>Daerah Penerima Bantuan</h3>
+        <div class="region-item">Jakarta Pusat — 321.872 jiwa</div>
+        <div class="region-item">Jakarta Timur — 486.201 jiwa</div>
+        <div class="region-item">Jakarta Barat — 402.193 jiwa</div>
+        <div class="region-item">Bogor — 612.390 jiwa</div>
+        <div class="region-item">Depok — 273.155 jiwa</div>
+        <div class="region-item">Bekasi — 510.842 jiwa</div>
+      </aside>
+    </section>
+
+    <nav class="bottom-nav">
+        <a href="index.html">
+          <img src="assets/beranda.png" alt="" width="35px" height="auto" />
+          Beranda
+        </a>
+        <a href="dashboard.html">
+          <img src="assets/proban.png" alt="" width="35px" height="auto" />
+          Program Bantuan
+        </a>
+        <a href="cek-data.html">
+          <img src="assets/cekdata.png" alt="" width="35px" height="auto" />
+          Cek Data
+        </a>
+        <a href="profile.html" class="active">
+        <img src="assets/pengajuan.png" alt="" width="35px" height="auto">
+          Pengajuan
+        </a>
+      </nav>
+  </div>
+
+  <script>
+    // animasi garis chart (stroke-dashoffset)
+    document.addEventListener("DOMContentLoaded", () => {
+      const poly = document.getElementById("chartPolyline");
+      const len = poly.getTotalLength();
+      poly.style.strokeDasharray = len;
+      poly.style.strokeDashoffset = len;
+      poly.style.transition = "stroke-dashoffset 1.5s ease-out";
+      requestAnimationFrame(() => {
+        poly.style.strokeDashoffset = "0";
+      });
+    });
+  </script>
+</body>
+</html>
